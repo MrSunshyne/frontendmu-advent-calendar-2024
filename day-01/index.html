@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Holiday Button Challenge</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #0D1C4A;
+            font-family: Arial, sans-serif;
+        }
+
+        .holiday-button {
+            padding: 15px 30px;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            background: linear-gradient(45deg, #ED1C24, #007A4D);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 51, 153, 0.5);
+        }
+
+        .holiday-button::before,
+        .holiday-button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(
+                circle at center, 
+                rgba(255, 255, 255, 0.7) 0%, 
+                transparent 70%
+            );
+            transform: rotate(-45deg);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .holiday-button::after {
+            background: radial-gradient(
+                circle at center, 
+                rgba(0, 51, 153, 0.5) 0%, 
+                transparent 70%
+            );
+            animation: sparkle 1.5s infinite alternate;
+        }
+
+        @keyframes sparkle {
+            0% {
+                transform: rotate(-45deg) scale(1);
+                opacity: 0;
+            }
+            50% {
+                transform: rotate(-45deg) scale(1.2);
+                opacity: 0.3;
+            }
+            100% {
+                transform: rotate(-45deg) scale(1.4);
+                opacity: 0;
+            }
+        }
+
+        .holiday-button .sparkle-point {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            opacity: 0;
+            animation: twinkle 1.5s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { 
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% { 
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .holiday-button:hover {
+            transform: scale(1.05);
+            box-shadow: 
+                0 0 25px rgba(237, 28, 36, 0.7),
+                0 0 40px rgba(0, 51, 153, 0.5);
+            background: linear-gradient(45deg, #ED1C24, #003399, #FFD700, #007A4D);
+            background-size: 400% 400%;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
+        .holiday-button:hover .sparkle-point {
+            background-color: rgba(255, 215, 0, 0.8);
+        }
+
+        .holiday-button:active {
+            transform: scale(0.95);
+            box-shadow: 
+                0 0 15px rgba(237, 28, 36, 0.5),
+                0 0 20px rgba(0, 51, 153, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <button class="holiday-button">
+        Touch me
+        <span class="sparkle-point" style="top: 10%; left: 20%;"></span>
+        <span class="sparkle-point" style="top: 80%; left: 70%;"></span>
+        <span class="sparkle-point" style="top: 30%; left: 60%;"></span>
+        <span class="sparkle-point" style="top: 50%; left: 40%;"></span>
+    </button>
+</body>
+</html>
