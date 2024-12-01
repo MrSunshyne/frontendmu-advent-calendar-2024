@@ -6,7 +6,7 @@ Details are available on the [advent.frontend.mu](https://advent.frontend.mu) we
 
 ## My Submissions
 
-1. [Festive Glowing Button](./day-01/index.html)
+1. [Festive Glowing Button](https://sandeep-frontendmu-advent-calendar-2024.pages.dev/day-01/index.html)
 
 ---
 
